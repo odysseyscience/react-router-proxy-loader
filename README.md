@@ -9,7 +9,13 @@ Based on [react-proxy-loader](https://github.com/webpack/react-proxy-loader), ad
 
 ## Dependencies
 
-Right now, this library depends on [bluebird](https://github.com/petkaantonov/bluebird) for promises, which is an amazing library.  May be a little heavy, though, so feel free to send a PR if you'd rather it use something else.
+Which version to use depends on your version of `react-router`
+
+| react-router     | react-router-proxy-loader |
+| ---------------- | ------------------------- |
+| 0.11.x and below | 0.1.x                     |
+| 0.12.x and above | 0.2.x                     |
+
 
 ## Usage
 
