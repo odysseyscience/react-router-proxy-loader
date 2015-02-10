@@ -18,7 +18,7 @@ Right now, this library depends on [bluebird](https://github.com/petkaantonov/bl
 Use when requiring the `handler` for a `Route`, and the component will only be loaded when the route is rendered.
 
 ```js
-    <Route name="user" path="/user/:userId" handler={require('react-router-proxy!./User.jsx')} />
+<Route name="user" handler={require('react-router-proxy!./User.jsx')} />
 ```
 
 Note that `willTransitionTo` and `willTransitionFrom` will still be called on the dynamically-loaded component.
