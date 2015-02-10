@@ -1,6 +1,6 @@
 {
   "name": "react-router-proxy-loader",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dynamically load react-router components on-demand",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/odysseyscience/react-router-proxy-loader",
   "peerDependencies": {
-    "bluebird": "*"
+    "bluebird": "*",
+    "react-router": "0.11.x"
   }
 }
