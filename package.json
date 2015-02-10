@@ -1,0 +1,25 @@
+{
+  "name": "react-router-proxy-loader",
+  "version": "0.1.0",
+  "description": "Dynamically load react-router components on-demand",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/odysseyscience/react-router-proxy-loader.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "proxy",
+    "loader"
+  ],
+  "author": "Sean Adkinson <sean.adkinson@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/odysseyscience/react-router-proxy-loader/issues"
+  },
+  "homepage": "https://github.com/odysseyscience/react-router-proxy-loader"
+}
