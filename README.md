@@ -35,10 +35,10 @@ Note that `willTransitionTo` and `willTransitionFrom` will still be called on th
 If you have nested or sibling Routes that you want to be loaded together, you can name the components using `?name=chunkName`
 
 ```js
-<Route name="user" handler={require('react-router-proxy!./User.jsx?name=user')}>
-    <Route name="details" handler={require('react-router-proxy!./UserDetails.jsx?name=user')}>
-    <Route name="settings" handler={require('react-router-proxy!./UserSettings.jsx?name=user')}>
-    <Route name="other" handler={require('react-router-proxy!./UserOther.jsx?name=user')}>
+<Route name="user" handler={require('react-router-proxy?name=user!./User.jsx')}>
+    <Route name="details" handler={require('react-router-proxy?name=user!./UserDetails.jsx')}>
+    <Route name="settings" handler={require('react-router-proxy?name=user!./UserSettings.jsx')}>
+    <Route name="other" handler={require('react-router-proxy?name=user!./UserOther.jsx')}>
 </Route>
 ```
 
