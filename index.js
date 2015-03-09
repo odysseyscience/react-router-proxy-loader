@@ -2,9 +2,13 @@
  * Taken and modified from react-proxy-loader to support react-router
  * willTransitionTo hooks.  See "BEGIN CHANGE" - "END CHANGE" below.
  */
+var loaderUtils = require("loader-utils");
+
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
     this.cacheable && this.cacheable();
+    var query = loaderUtils.parseQuery(this.query);
+    
     var moduleRequest = "!!" + remainingRequest;
     return [
         'var React = require("react");',
@@ -25,7 +29,7 @@ module.exports.pitch = function(remainingRequest) {
         '                else {',
         '                    callback();',
         '                }',
-        '            });',
+        '            }' + (query.name ? ', ' + JSON.stringify(query.name) : '') + ');',
         '        },',
         '        willTransitionFrom: function(transition, component, callback) {',
         '            if (component && component.willTransitionFrom) {',
@@ -46,7 +50,7 @@ module.exports.pitch = function(remainingRequest) {
         '            require.ensure([], function() {',
         '                component = require(' + JSON.stringify(moduleRequest) + ');',
         '                if(callback) callback(component);',
-        '            });',
+        '            }' + (query.name ? ', ' + JSON.stringify(query.name) : '') + ');',
         '        } else if(callback) callback(component);',
         '        return component;',
         '    }',
