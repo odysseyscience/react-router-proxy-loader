@@ -29,6 +29,22 @@ Use when requiring the `handler` for a `Route`, and the component will only be l
 
 Note that `willTransitionTo` and `willTransitionFrom` will still be called on the dynamically-loaded component.
 
+
+### Named chunks (0.2.1 and above)
+
+If you have nested or sibling Routes that you want to be loaded together, you can name the components using `?name=chunkName`
+
+```js
+<Route name="user" handler={require('react-router-proxy!./User.jsx?name=user')}>
+    <Route name="details" handler={require('react-router-proxy!./UserDetails.jsx?name=user')}>
+    <Route name="settings" handler={require('react-router-proxy!./UserSettings.jsx?name=user')}>
+    <Route name="other" handler={require('react-router-proxy!./UserOther.jsx?name=user')}>
+</Route>
+```
+
+This will cause the `user` chunk to be loaded if any of the three user pages is loaded.  It will also mean that you won't need two separate calls for the base class and child class.
+
+
 # License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
