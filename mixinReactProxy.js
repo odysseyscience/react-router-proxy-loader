@@ -3,6 +3,7 @@ module.exports = function(React, desc) {
     desc.render = function() {
         var Component = this.state.component;
         if(Component) {
+            this.props.ref = "componentProxy";
             return React.createElement(Component, this.props, this.props.children);
         } else if(this.renderUnavailable) {
             return this.renderUnavailable();
