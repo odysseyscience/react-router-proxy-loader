@@ -32,7 +32,7 @@ module.exports.pitch = function(remainingRequest) {
         '            }' + (query.name ? ', ' + JSON.stringify(query.name) : '') + ');',
         '        },',
         '        willTransitionFrom: function(transition, component, callback) {',
-        '            var componentClass = component.state ? component.state.component : null;',
+        '            var componentClass = component && component.state ? component.state.component : null;',
         '            if (componentClass && componentClass.willTransitionFrom) {',
         '                componentClass.willTransitionFrom(transition, component.refs["componentProxy"], callback);',
         '                if (componentClass.willTransitionFrom.length < 3) {',
