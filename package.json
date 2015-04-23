@@ -22,7 +22,8 @@
     "url": "https://github.com/odysseyscience/react-router-proxy-loader/issues"
   },
   "dependencies": {
-    "loader-utils": "~0.2.6"
+    "loader-utils": "~0.2.6",
+    "object-assign": "^2.0.0"
   },
   "homepage": "https://github.com/odysseyscience/react-router-proxy-loader",
   "peerDependencies": {
