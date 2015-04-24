@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/odysseyscience/react-router-proxy-loader",
   "peerDependencies": {
-    "react-router": "^0.13.0",
-    "object-assign": "*"
+    "react-router": "^0.13.0"
   }
 }

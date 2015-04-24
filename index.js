@@ -12,7 +12,6 @@ module.exports.pitch = function(remainingRequest) {
     var moduleRequest = "!!" + remainingRequest;
     return [
         'var React = require("react");',
-        'var assign = require("object-assign");',
         'var component;',
         'var desc = {',
 
@@ -58,7 +57,7 @@ module.exports.pitch = function(remainingRequest) {
         '    }',
         '};',
         'var mixinReactProxy = require(' + JSON.stringify(require.resolve("./mixinReactProxy")) + ');',
-        'mixinReactProxy(React, assign, desc);',
+        'mixinReactProxy(React, desc);',
         'module.exports = React.createClass(desc);',
         'module.exports.Mixin = desc;'
     ].join("\n");
