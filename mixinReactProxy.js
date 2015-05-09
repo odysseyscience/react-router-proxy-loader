@@ -13,6 +13,7 @@ module.exports = function(React, desc) {
     desc.render = function() {
         var Component = this.state.component;
         if(Component) {
+            desc.displayName = Component.displayName || desc.displayName;
             return React.createElement(Component, assign({ref: "componentProxy"}, this.props), this.props.children);
         } else if(this.renderUnavailable) {
             return this.renderUnavailable();
