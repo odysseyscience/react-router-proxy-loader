@@ -1,6 +1,6 @@
 {
   "name": "react-router-proxy-loader",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Dynamically load react-router components on-demand",
   "main": "index.js",
   "scripts": {
