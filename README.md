@@ -15,7 +15,8 @@ Which version to use depends on your version of `react-router`
 | ---------------- | ------------------------- |
 | 0.11.x and below | 0.1.x                     |
 | 0.12.x           | 0.2.x                     |
-| 0.13.x and above | 0.3.x                     |
+| 0.13.x           | 0.3.x                     |
+| 1.x and above    | 0.4.x                     |
 
 
 ## Usage
