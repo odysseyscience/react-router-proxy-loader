@@ -8,18 +8,22 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
     this.cacheable && this.cacheable();
     var query = loaderUtils.parseQuery(this.query);
-    
+
     var moduleRequest = "!!" + remainingRequest;
     return [
         'var React = require("react");',
         'var component;',
+        'function requireComponent() {',
+        '    var module = require(' + JSON.stringify(moduleRequest) + ');',
+        '    return module.__esModule ? module.default : module;',
+        '}',
         'var desc = {',
 
         // BEGIN CHANGE
         '    statics: {',
         '        willTransitionTo: function(transition, params, query, callback) {',
         '            require.ensure([], function() {',
-        '                component = require(' + JSON.stringify(moduleRequest) + ');',
+        '                component = requireComponent();',
         '                if (component.willTransitionTo) { ',
         '                    component.willTransitionTo(transition, params, query, callback);',
         '                    if (component.willTransitionTo.length < 4) {',
@@ -49,7 +53,7 @@ module.exports.pitch = function(remainingRequest) {
         '    loadComponent: function(callback) {',
         '        if(!component) {',
         '            require.ensure([], function() {',
-        '                component = require(' + JSON.stringify(moduleRequest) + ');',
+        '                component = requireComponent();',
         '                if(callback) callback(component);',
         '            }' + (query.name ? ', ' + JSON.stringify(query.name) : '') + ');',
         '        } else if(callback) callback(component);',
