@@ -47,6 +47,13 @@ If you have nested or sibling Routes that you want to be loaded together, you ca
 This will cause the `user` chunk to be loaded if any of the three user pages is loaded.  It will also mean that you won't need two separate calls for the base class and child class.
 
 
+## Changelog (Starting at 0.4.1)
+
+##### 0.4.1
+
+ - Added support for ES6 modules
+
+
 # License
 
 MIT (http://www.opensource.org/licenses/mit-license.php)
