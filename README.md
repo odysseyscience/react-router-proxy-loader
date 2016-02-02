@@ -49,6 +49,10 @@ This will cause the `user` chunk to be loaded if any of the three user pages is 
 
 ## Changelog (Starting at 0.4.2)
 
+##### 0.4.3
+
+ - Using module['default'] for IE8 compatibility
+
 ##### 0.4.2
 
  - Added support for ES6 modules
