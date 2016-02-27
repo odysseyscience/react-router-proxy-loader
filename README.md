@@ -17,6 +17,7 @@ Which version to use depends on your version of `react-router`
 | 0.12.x           | 0.2.x                     |
 | 0.13.x           | 0.3.x                     |
 | 1.x and above    | 0.4.x                     |
+| 2.x and above    | 0.5.x                     |
 
 
 ## Usage
@@ -37,10 +38,10 @@ Note that `willTransitionTo` and `willTransitionFrom` will still be called on th
 If you have nested or sibling Routes that you want to be loaded together, you can name the components using `?name=chunkName`
 
 ```js
-<Route name="user" handler={require('react-router-proxy?name=user!./User.jsx')}>
-    <Route name="details" handler={require('react-router-proxy?name=user!./UserDetails.jsx')}>
-    <Route name="settings" handler={require('react-router-proxy?name=user!./UserSettings.jsx')}>
-    <Route name="other" handler={require('react-router-proxy?name=user!./UserOther.jsx')}>
+<Route path="user" component={require('react-router-proxy?name=user!./User.jsx')}>
+    <Route path="details" component={require('react-router-proxy?name=user!./UserDetails.jsx')}>
+    <Route path="settings" component={require('react-router-proxy?name=user!./UserSettings.jsx')}>
+    <Route path="other" component={require('react-router-proxy?name=user!./UserOther.jsx')}>
 </Route>
 ```
 
