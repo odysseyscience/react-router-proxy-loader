@@ -16,7 +16,7 @@ Which version to use depends on your version of `react-router`
 | 0.11.x and below | 0.1.x                     |
 | 0.12.x           | 0.2.x                     |
 | 0.13.x           | 0.3.x                     |
-| 1.x and above    | 0.4.x                     |
+| 1.x              | 0.4.x                     |
 | 2.x and above    | 0.5.x                     |
 
 
@@ -27,10 +27,10 @@ Which version to use depends on your version of `react-router`
 Use when requiring the `handler` for a `Route`, and the component will only be loaded when the route is rendered.
 
 ```js
-<Route name="user" handler={require('react-router-proxy!./User.jsx')} />
+<Route path="user" component={require('react-router-proxy!./User.jsx')} />
 ```
 
-Note that `willTransitionTo` and `willTransitionFrom` will still be called on the dynamically-loaded component.
+Note that in react-router 0.x, `willTransitionTo` and `willTransitionFrom` will be proxied to the dynamically-loaded component.
 
 
 ### Named chunks (0.2.1 and above)
@@ -48,7 +48,11 @@ If you have nested or sibling Routes that you want to be loaded together, you ca
 This will cause the `user` chunk to be loaded if any of the three user pages is loaded.  It will also mean that you won't need two separate calls for the base class and child class.
 
 
-## Changelog (Starting at 0.4.2)
+## Changelog
+
+##### 0.5.0
+
+ - Upgraded to react-router 2.x
 
 ##### 0.4.3
 
@@ -58,6 +62,9 @@ This will cause the `user` chunk to be loaded if any of the three user pages is 
 
  - Added support for ES6 modules
 
+##### Before 0.4.2
+
+ - See commit history
 
 # License
 
