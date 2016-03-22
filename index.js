@@ -8,6 +8,10 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
     this.cacheable && this.cacheable();
     var query = loaderUtils.parseQuery(this.query);
+    var chunkName = loaderUtils.interpolateName(this, 'routes/' + query.name, {
+        context: this.options.context,
+        content: remainingRequest,
+    }).toLowerCase();
 
     var moduleRequest = "!!" + remainingRequest;
     return [
@@ -30,7 +34,7 @@ module.exports.pitch = function(remainingRequest) {
         '                else {',
         '                    callback();',
         '                }',
-        '            }' + (query.name ? ', ' + JSON.stringify(query.name) : '') + ');',
+        '            }' + (chunkName ? ', ' + JSON.stringify(chunkName) : '') + ');',
         '        },',
         '        willTransitionFrom: function(transition, component, callback) {',
         '            var componentClass = component && component.state ? component.state.component : null;',
@@ -53,7 +57,7 @@ module.exports.pitch = function(remainingRequest) {
         '                var module = require(' + JSON.stringify(moduleRequest) + ');',
         '                component = module.__esModule ? module["default"] : module;',
         '                if(callback) callback(component);',
-        '            }' + (query.name ? ', ' + JSON.stringify(query.name) : '') + ');',
+        '            }' + (chunkName ? ', ' + JSON.stringify(chunkName) : '') + ');',
         '        } else if(callback) callback(component);',
         '        return component;',
         '    }',
