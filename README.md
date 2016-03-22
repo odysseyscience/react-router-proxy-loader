@@ -45,8 +45,45 @@ If you have nested or sibling Routes that you want to be loaded together, you ca
 </Route>
 ```
 
-This will cause the `user` chunk to be loaded if any of the three user pages is loaded.  It will also mean that you won't need two separate calls for the base class and child class.
+This will cause the `user` chunk to be loaded if any of the three user pages is loaded.
+It will also mean that you won't need two separate calls for the base class and child class.
 
+#### Named chunks with placeholders
+
+You can also use the [standard Webpack placeholders](https://github.com/webpack/loader-utils#interpolatename) in the name of your chunks.
+Your chunks will then be placed in a `routes` subfolder to avoid conflicts. Per example the following setup:
+
+```js
+<Route path="details" component={require('react-router-proxy?name=[name]!./UserDetails.jsx')}>
+<Route path="settings" component={require('react-router-proxy?name=[name]!./UserSettings.jsx')}>
+<Route path="other" component={require('react-router-proxy?name=[name]!./UserOther.jsx')}>
+```
+
+Would generate three chunks, exported in `routes/userdetails.js`, `routes/usersettings.js` and so on.
+Using this approach allows you to setup your loader globally through an exclude/include rule in your `webpack.config.js`:
+
+```js
+loaders: [
+    {
+        test: /\.js$/,
+        exclude: /src\/Pages/,
+        loader: 'babel',
+    },
+    {
+        test: /\.js$/,
+        include: /src\/Pages/,
+        loaders: ['react-router-proxy?name=[name]', 'babel'],
+    }
+],
+```
+
+This has the advantage of making your router a lot leaner:
+
+```js
+<Route path="details" component={require('./UserDetails.jsx')}>
+<Route path="settings" component={require('./UserSettings.jsx')}>
+<Route path="other" component={require('./UserOther.jsx')}>
+```
 
 ## Changelog
 
