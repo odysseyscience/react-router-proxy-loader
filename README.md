@@ -48,7 +48,7 @@ If you have nested or sibling Routes that you want to be loaded together, you ca
 This will cause the `user` chunk to be loaded if any of the three user pages is loaded.
 It will also mean that you won't need two separate calls for the base class and child class.
 
-#### Named chunks with placeholders
+#### Named chunks with placeholders (0.5.1 and above)
 
 You can also use the [standard Webpack placeholders](https://github.com/webpack/loader-utils#interpolatename) in the name of your chunks.
 
@@ -59,7 +59,7 @@ You can also use the [standard Webpack placeholders](https://github.com/webpack/
 ```
 
 Would generate three chunks, exported in `userdetails.js`, `usersettings.js` and so on.
-Using this approach allows you to setup your loader globally through an exclude/include rule in your `webpack.config.js`. 
+Using this approach allows you to setup your loader globally through an exclude/include rule in your `webpack.config.js`.
 To avoid conflicts it may be best to prefix your `name` with a subfolder name, such as `routes/`:
 
 ```js
@@ -88,6 +88,10 @@ This has the advantage of making your router a lot leaner:
 The generated files would then go into `routes/userdetails`, `routes/usersettings` etc.
 
 ## Changelog
+
+##### 0.5.1
+
+ - Added named chunks with placeholders
 
 ##### 0.5.0
 
