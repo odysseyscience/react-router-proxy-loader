@@ -8,7 +8,7 @@ module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
     this.cacheable && this.cacheable();
     var query = loaderUtils.parseQuery(this.query);
-    var chunkName = loaderUtils.interpolateName(this, 'routes/' + query.name, {
+    var chunkName = loaderUtils.interpolateName(this, query.name, {
         context: this.options.context,
         content: remainingRequest,
     }).toLowerCase();
